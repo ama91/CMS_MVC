@@ -19,5 +19,24 @@ namespace CustomerManagementSystem.Controllers
 
             return View(objMerchantCategoryList);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(MerchantCategory obj)
+        {
+            if (ModelState.IsValid)
+            { 
+                _db.MerchantCategories.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+
+            return View();
+        }
     }
 }
