@@ -8,13 +8,14 @@
             </h2>
         </div>
         <div class="pb-1 text-end">
-            <a asp-controller="MerchantCategory" asp-action="Create" class="btn btn-primary" title="Create new category">
-                <i class="bi bi-plus-circle"></i>
+            <a asp-controller="MerchantCategory" asp-action="Create" class="btn btn-primary" title="">
+                <i class="bi bi-plus-circle"></i> Create new category
             </a>
+
         </div>
     </div>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-border table-striped">
         <thead>
             <tr>
                 <th>
@@ -23,17 +24,28 @@
                 <th>
                     Display Order
                 </th>
+                <th>
+                    Actions
+                </th>
             </tr>
         </thead>
         <tbody>
-            @foreach(var category in Model.OrderBy(u => u.DisplayOrder))
+            @foreach(var obj in Model.OrderBy(u => u.DisplayOrder))
             {
                 <tr>
                     <td>
-                        @category.Name
+                        @obj.Name
                     </td>
                     <td>
-                        @category.DisplayOrder
+                        @obj.DisplayOrder
+                    </td>
+                    <td class="d-flex justify-content-center btn-group" role="group">
+                        <a asp-controller="MerchantCategory" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-warning">
+                            <i class="bi bi-pencil-square"></i> Edit
+                        </a>
+                        <a asp-controller="MerchantCategory" asp-action="Susbend" asp-route-id="@obj.Id" class="btn btn-danger">
+                            <i class="bi bi-trash3"></i> Susbend
+                        </a>
                     </td>
                 </tr>
             }

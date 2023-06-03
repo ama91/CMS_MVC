@@ -28,15 +28,75 @@ namespace CustomerManagementSystem.Controllers
         [HttpPost]
         public IActionResult Create(MerchantCategory obj)
         {
+            
             if (ModelState.IsValid)
             { 
                 _db.MerchantCategories.Add(obj);
                 _db.SaveChanges();
-                return RedirectToAction("Index");
 
+                TempData["success"] = "Merchant category add successfully";
+
+                return RedirectToAction("Index");
             }
 
             return View();
+        }
+
+        public IActionResult Edit(int ? id)
+        {
+            if (id == null || id == 0)
+                return NotFound();
+
+            MerchantCategory? merchantCategory = _db.MerchantCategories.Find(id);
+
+            if (merchantCategory == null)
+                return NotFound();
+
+            return View(merchantCategory);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(MerchantCategory obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _db.MerchantCategories.Update(obj);
+                _db.SaveChanges();
+
+                TempData["success"] = "Merchant category Edited successfully";
+
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
+        public IActionResult Susbend(int? id)
+        {
+            if (id == null || id == 0)
+                return NotFound();
+
+            MerchantCategory? merchantCategory = _db.MerchantCategories.Find(id);
+
+            if (merchantCategory == null)
+                return NotFound();
+
+            return View(merchantCategory);
+        }
+
+        [HttpPost]
+        public IActionResult Susbend(MerchantCategory obj)
+        {
+            if (obj == null)
+                return NotFound();
+
+            _db.MerchantCategories.Remove(obj);
+            _db.SaveChanges();
+
+            TempData["success"] = "Merchant category susbended successfully";
+
+            return RedirectToAction("Index");
         }
     }
 }
