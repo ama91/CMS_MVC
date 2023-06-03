@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace CustomerManagementSystem.Models
+namespace CMS.Models.Models
 {
     public class MerchantCategory
     {

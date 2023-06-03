@@ -1,7 +1,7 @@
-﻿using CustomerManagementSystem.Models;
+﻿using CMS.Models.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CustomerManagementSystem.Data
+namespace CMS.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

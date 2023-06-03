@@ -1,5 +1,5 @@
-﻿using CustomerManagementSystem.Data;
-using CustomerManagementSystem.Models;
+﻿using CMS.DataAccess.Data;
+using CMS.Models.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CustomerManagementSystem.Controllers

@@ -1,4 +1,4 @@
-﻿using CustomerManagementSystem.Models;
+﻿using CMS.Models.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

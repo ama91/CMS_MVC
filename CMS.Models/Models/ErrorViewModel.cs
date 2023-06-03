@@ -1,4 +1,4 @@
-namespace CustomerManagementSystem.Models
+namespace CMS.Models.Models
 {
     public class ErrorViewModel
     {
